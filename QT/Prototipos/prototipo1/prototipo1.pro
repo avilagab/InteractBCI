@@ -13,8 +13,26 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    includes/bcidata.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    includes/bcidata.h \
+    includes/edk.h \
+    includes/edkErrorCode.h \
+    includes/elsClient.h \
+    includes/EmoStateDLL.h
 
 FORMS    += mainwindow.ui
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/lib/ -ledk
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/lib/ -ledk
+else:unix: LIBS += -L$$PWD/lib/ -ledk
+
+DISTFILES += \
+    lib/edk.lib \
+    lib/glut32.lib \
+    lib/edk.dll \
+    lib/edk_utils.dll \
+    lib/glut32.dll \
+    lib/glut64.dll

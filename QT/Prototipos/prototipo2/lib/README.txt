@@ -1,0 +1,1 @@
+Para este protototipo se utilzaron las nuevas librerías de edk 16/11/2016

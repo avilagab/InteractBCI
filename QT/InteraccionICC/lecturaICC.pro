@@ -9,7 +9,7 @@ QT       += printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = PruebaQt01
+TARGET = LecturaICC
 TEMPLATE = app
 
 SOURCES += main.cpp\

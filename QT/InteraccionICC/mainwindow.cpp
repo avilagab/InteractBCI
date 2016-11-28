@@ -1,3 +1,9 @@
+//Autor: Gabriel Ávila
+//Año: 2016
+//Este programa utiliza las funciones de las librerías de Emotiv con el fin de
+//adquirir la información cruda, de cada uno de los diferentes sensores,
+//para su posterior entrenamiento y clasificación.
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <time.h>
@@ -56,6 +62,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setWindowTitle("Captura ICC - Tiempo Real");
     statusBar()->clearMessage();
 
+    //Configuración del Emotiv
     eEvent			= EE_EmoEngineEventCreate();
     eState			= EE_EmoStateCreate();
     userID          = 0;
@@ -206,9 +213,7 @@ void MainWindow::realtimeDataSlot()
             emoExcitement = ES_AffectivGetExcitementShortTermScore(eState);
             emoSmile = ES_AffectivGetValenceScore(eState);
 
-            edkDLL.
-
-            std::cout << emoEngagement << ", " << emoFrustration << ", " << emoMeditation << ", " << emoExcitement << ", " << emoSmile << endl;
+            //std::cout << emoEngagement << ", " << emoFrustration << ", " << emoMeditation << ", " << emoExcitement << ", " << emoSmile << endl;
 
             bciData.setData(i, data[sampleIdx]);
 
